@@ -162,12 +162,12 @@ How do we fix this? Well, we could use a popular pattern in Javascript called th
 Callbacks are usually functions, but one could also pass an object and call a function on that object. Here's an example of a callback function:
 
 ```
-let hello = function() {
+let hello = () => {
   console.log("Outputted last");
 }
 
-let asynchronous_code = function(fn) {
-  setTimeout(function() {
+let asynchronous_code = (fn) =>{
+  setTimeout(() => {
     console.log("Outputted first");
     fn();
   }, 1000);

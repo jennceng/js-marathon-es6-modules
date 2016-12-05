@@ -483,7 +483,7 @@ let countdown = (count) => {
   if (count === 0) {
     console.log("Blastoff!!");
   } else {
-    setTimeout(function() {
+    setTimeout(() => {
       console.log(`${count}...`);
       countdown(count - 1);
     }, 1000);
@@ -512,7 +512,6 @@ let trainCrew = (names) => {
 
 trainCrew(crewNames);
 launchpad(ourShip, trainedCrew, rocket);
-
 ```
 
 ---
@@ -535,7 +534,7 @@ let countdown = (count, ship) => {
     console.log("Blastoff!!");
     ship.takeoff();
   } else {
-    setTimeout(function() {
+    setTimeout(() => {
       console.log(`${count}...`);
       countdown(count - 1, ship);
     }, 1000);

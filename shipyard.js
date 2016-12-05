@@ -13,7 +13,7 @@ let countdown = (count, ship) => {
     console.log("Blastoff!!");
     ship.takeoff();
   } else {
-    setTimeout(function() {
+    setTimeout(() => {
       console.log(`${count}...`);
       countdown(count - 1, ship);
     }, 1000);
