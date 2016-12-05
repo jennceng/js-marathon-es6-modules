@@ -6,11 +6,10 @@ class Spaceship {
   }
 
   loadCrew(crew) {
-    for(let i = 0; i < crew.length; i++) {
-      let newCrewMember = crew[i];
+    crew.map(newCrewMember => {
       this.crew.push(newCrewMember);
       console.log(`Welcome aboard the ${this.name}, ${newCrewMember.name}`);
-    }
+    })
   }
 
   captain() {

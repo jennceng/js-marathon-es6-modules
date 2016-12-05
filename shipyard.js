@@ -32,11 +32,11 @@ let launchpad = (ship, crewMembers, engine) => {
 };
 
 let trainCrew = (names) => {
-  for(let i = 0; i < names.length; i++) {
-    let newCrewMember = new CrewMember(names[i]);
+  names.forEach(name => {
+    let newCrewMember = new CrewMember(name);
     newCrewMember.trained = true;
     trainedCrew.push(newCrewMember);
-  }
+  })
 }
 
 trainCrew(crewNames);

@@ -1,3 +1,24 @@
+Encourage students to use other ways of iterating over arrays such as forEach and map.  For example the below steps use for loops, but trainCrew can also be written as something like
+```js
+let trainCrew = (names) => {
+  names.forEach(name => {
+    let newCrewMember = new CrewMember(name);
+    newCrewMember.trained = true;
+    trainedCrew.push(newCrewMember);
+  })
+}
+```
+
+and spaceship's loadcrew can be rewritten as
+```js
+loadCrew(crew) {
+  crew.map(newCrewMember => {
+    this.crew.push(newCrewMember);
+    console.log(`Welcome aboard the ${this.name}, ${newCrewMember.name}`);
+  })
+}
+```
+
 ```js
 // shipyard.js
 let launchpad = () => {
