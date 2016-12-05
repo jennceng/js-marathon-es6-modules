@@ -8,6 +8,19 @@ let trainedCrew =[];
 
 let ourShip = new Spaceship("Jennz Frennzship");
 
+let countdown = (count, ship) => {
+  if (count === 0) {
+    console.log("Blastoff!!");
+    ship.takeoff();
+  } else {
+    setTimeout(function() {
+      console.log(`${count}...`);
+      countdown(count - 1, ship);
+    }, 1000);
+  }
+}
+
+
 let launchpad = (ship, crewMembers, engine) => {
   console.log("starting preflight procedures!");
   console.log(`Welcome aboard the ${ship.name}`);
@@ -15,7 +28,7 @@ let launchpad = (ship, crewMembers, engine) => {
   console.log(`High Five to our captain, ${ship.captain().name}`);
   ship.mountPropulsion(engine);
   ship.propulsion.addFuel(5);
-  ship.takeoff();
+  countdown(5, ship);
 };
 
 let trainCrew = (names) => {

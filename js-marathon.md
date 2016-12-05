@@ -2,7 +2,7 @@
 
 It's time to explore space! But first, we've got to work together and build a spaceship that will get us there!
 
-We've provided a `shipyard.js` file that we're going to use to build our ship, our rockets, our crew, and blast off.
+We've provided a `shipyard.js` file that we're going to use to build our spaceship, our rockets, our crew, and blast off.
 
 #### Step 0 - Create a launchpad
 
@@ -22,54 +22,58 @@ After each step, we should run `node shipyard.js` to make sure our code works, a
 
 Let's start building our space vessel!
 
-Create a Javascript function called `Ship` that is a constructor that takes a `name` argument and assigns it to a `name` property. Using that constructor, make a new object and name it `ourShip`.
-Discuss with your group what an appropriate name for this ship might be.
+Create a Javascript file called `Spaceship.js`.  Using class syntax, define a  `Spaceship` class that takes a `name` argument and assigns it to a `name` property.  Don't forget to export your module! Import the file to your shipyard.js and assign it to the variable Spaceship.
 
-Let's add another preflight message that announces the name of our ship in our `launchpad` function.
+Discuss with your group what an appropriate name for this spaceship might be.  Create a new Spaceship object with the chosen name and assign it the variable `ourShip`.
+
+Let's add another preflight message that announces the name of our spaceship in our `launchpad` function.
+
 We'll need to add an argument to the `launchpad` function so we can pass in `ourShip`.
 
 #### Step 2 - Round up your crew!
 
-We're going to work on getting our crew on the ship - but first we need to round them up!
+We're going to work on getting our crew on the spaceship - but first we need to round them up!
 
-First create an array named `crewNames`, and fill it with the name of all the members in your mentor group!
+In `shipyard.js`, first create an array named `crewNames`, and fill it with the name of all the members in your mentor group!
 
-Make a constructor function for a `CrewMember` that takes a `name` argument and assigns it to a `name` property. Also make a `trained` property that defaults to false.
+Create a Javascript file called `CrewMember.js`. Make a `CrewMember` class that takes a `name` argument and assigns it to a `name` property. Also make a `trained` property that defaults to false.  Don't forget to export your new module and import it into `shipyard.js`!  Assign it to a variable called CrewMember.
 
 
 #### Step 3 - Train your crew!
 
-We're going to create a function called `trainCrew` that takes in an array of strings (the names of each crew member) and returns an array of Javascript objects (a CrewMember object).
+Before we can load the crew on the spaceship, we have to first train the crew!  In `shipyard.js`, we're going to create a function called `trainCrew` that takes in an array of strings (the names of each crew member) and returns an array of Javascript objects (a CrewMember object via the CrewMember class).
 The trainCrew function should also change their `trained` attribute to true.
 
-Finish by creating an array of crew member objects called `crewMembers` by using both the `crewNames` array and the `trainCrew` function.
+Finish by creating an array of trained crew member objects called `crewMembers` by using both the `crewNames` array and the `trainCrew` function.
 
-#### Step 4 - Board the ship!
+#### Step 4 - Board the spaceship!
 
-Time to get our crew onboard the ship!
+Time to get our crew onboard the spaceship!
 
-Let's add a `crew` property to the `Ship` constructor with a default value of an empty array.
+Let's add a `crew` property to the `Spaceship` class with a default value of an empty array.
 
-Next, let's create a `loadCrew` property on the ship's prototype with an anonymous function as a value.
-This anonymous function should take in an array of crew member objects and one by one it should:
+Next, let's create a `loadCrew` property on the spaceships's class with a function as a value.
 
-* Add them to the ship's `crew` array.
-* Output a message announcing the name of the crew member that has boarded the ship.
+This function should take in an array of crew member objects and one by one it should:
 
-Let's make loading the crew part of the `launchpad` function. We're going to add another argument to `launchpad` to accept the `crewMembers` array.
-Finally, lets call the ship's `loadCrew` function with the `crewMembers` array in the `launchpad` function.
+* Add them to the spaceship's `crew` array.
+* Output a message announcing the name of the crew member that has boarded the spaceship.
+
+Let's make loading the crew part of the `launchpad` function. We're going to add another argument to `launchpad` to accept the `crewMembers` array (the array of trained crew members from step 3!).
+
+Finally, lets call the spaceship's `loadCrew` function with the `crewMembers` array in the `launchpad` function.
 
 #### Step 5 - Random captain!
 
-The crew decided to take turns playing the role of captain of the ship. Every time we ask the ship who is the captain, we're going to get a random crewMate!
+The crew decided to take turns playing the role of captain of the spaceship. Every time we ask the spaceship who is the captain, we're going to get a random crewMember!
 
-Start by defining the `captain` function on the `ship` prototype.
-This function will randomly pick a member from the ship's `crew` array.
+Start by defining the `captain` function on the `spaceship` class.
+This function will randomly pick a member from the spaceship's `crew` array.
 But, how do we implement randomness in javascript? Take a look at the following code for some inspiration!
 
 ```
-var number = 3;
-var random_number = Math.floor(Math.random() * number);
+let number = 3;
+let random_number = Math.floor(Math.random() * number);
 console.log(random_number);
 // Outpus either 0, 1, or 2 to the browser's console.
 ```
@@ -82,9 +86,9 @@ Be sure to check how the code looks by running `node shipyard.js`, then give our
 
 #### Step 7 - Building your spaceship's rockets!
 
-Earth's gravity well is no small task to overcome. We're going to need some sturdy rockets to take us to the stars.
+Earth's gravity well is no small task to overcome. We're going to need some sturdy rockets to take us to the stars.  Make a file called `Rocket.js` where we will export a module containing an object literal representing the rocket we will use to propel our spaceship!
 
-Create a `rocket` object (which we will later mount to our ship for propulsion) via an object literal, and assign it two properties:
+Create a `rocket` object (which we will later mount to our spaceship for propulsion) via an object literal, and assign it two properties:
  1. `fuel` which will default to `0`.
  2. `addFuel` which will be a function that accepts an integer as an argument, adds it to the rocket's fuel, and prints out the new fuel amount.
 
@@ -103,20 +107,21 @@ We're almost there!
 
 #### Step 9 - Mount your rocket!
 
-To start off, let's add a property to the `Ship` constructor called `propulsion` which is set initially to `null`.
+To start off, let's add a property to the `Spaceship` class called `propulsion` which is set initially to `null`.
 
-We're going to write some cool functions on the `Ship` prototype to attach our rocket.
+We're going to write some cool functions on the `Spaceship` class to attach our rocket.
 
-Add another property to the `Ship` prototype called `mountPropulsion`, this is going to be a function that takes in an object and assigns it to the ship's `propulsion` property.
+Add another property to the `Spaceship` class called `mountPropulsion`, this is going to be a function that takes in an object and assigns it to the spaceship's `propulsion` property.
+
 It should also print out that the propulsion mounted!
 
-Finish by passing in our `rocket` to the `launchpad` function. In the `launchpad` function, mount the rocket to ourShip!
+Finish by passing in our `rocket` to the `launchpad` function by importing `Rocket.js` and assigning it to a rocket variable. In the `launchpad` function, mount the rocket to ourShip!
 
 #### Step 10 - Blast off!
 
 We've got all of our pieces together. Now we've got to blastoff!
 
-Let's add a `takeoff` function on the `ship` prototype that:
+Let's add a `takeoff` function on the `spaceship` class that:
 * `fire`s the propulsion drives.
 * If the engines successfully fire, print a really convincing takeoff noise.
 * If the engines fail to fire, print that takeoff was unsuccessful.
@@ -125,13 +130,52 @@ Once you are done, call the `takeoff` function in the launchpad function and tak
 
 Oh snap, did you forget to fuel up your rocket??? If you need to add fuel to your rocket, add that to your launchpad function!
 
+#### Step 11 - Add a countdown sequence!
 
-#### Step 11 - Build a fleet!
+Congrats! Our ship works. But...I feel like it's missing something...
 
-You just got called up the big leagues as an Admiral of a Fleet!  Make a `fleet` object that has a property of `ships` defaulted to an empty array and property of name of your choosing.  Add a function to the `fleet` object, called `build` that takes in an array of ship names and creates new ship objects to the fleet and welcomes the ship to the fleet!
+...Of course! We need a countdown!
 
-Make an array of awesome ship names and build your fleet!
+Let's create a `countdown` function whose first argument is an integer from which we will start the countdown.
+* If the function receives `0` as an argument, it should print out that we're blasting off.
+* If the number is not `0`, then the function should print out the number and *recursively* call itself with the next number in the countdown.
 
+Now, just call the function in `launchpad`, and give it a run with `node shipyard.js`!
 
-#### Step 12 - Bonus Step: Refactor!
-You have probably typed out `Ship.prototype.functionName` enough times to realize this isn't very DRY, and your function assignments might be all over the code and it's hard to tell what functions our prototype has, refactor your Ship constructor / prototype to consolidate and clean up your code.
+#### Step 12 - Slow down the countdown sequence!
+
+The countdown is working, but it's going too fast. It would be great if there was a second delay between each number being printed out.
+
+There's a special function in Javascript, [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout) that executes code snippet after a specified delay.
+
+Update your `countdown` function to use `setTimeout()` in order to have a one second delay between printing out the numbers.
+
+#### Step 13 - The Final Countdown
+
+Congrats, everyone! It looks like a successful... wait, why did the rockets fire before the countdown was finished?
+
+Javascript executes its code in a very particular way. It goes line by line, scheduling the execution of each line of code.
+However, some functions - like `setTimeout` - are _asynchronous_, and Javascript schedules them for the future.
+This means that `takeoff()` is firing before the countdown finishes.
+
+How do we fix this? Well, we could use a popular pattern in Javascript called the `callback` pattern to register a `callback` for the asynchronous code to call at the appropriate time.
+Callbacks are usually functions, but one could also pass an object and call a function on that object. Here's an example of a callback function:
+
+```
+let hello = function() {
+  console.log("Outputted last");
+}
+
+let asynchronous_code = function(fn) {
+  setTimeout(function() {
+    console.log("Outputted first");
+    fn();
+  }, 1000);
+}
+
+asynchronous_code(hello);
+```
+
+Let's edit the countdown function to accept something we can run as a callback, and then update the launchpad accordingly.
+
+Run `node shipyard.js`, and get ready for takeoff, Launchers!

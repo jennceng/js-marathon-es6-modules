@@ -26,7 +26,7 @@ class Spaceship {
 
   takeoff() {
     if(this.propulsion.fire()) {
-      console.log('wooooosh');
+     console.log("to infinity and beyond!");
     } else {
       console.log('massive fail to launch');
     }
